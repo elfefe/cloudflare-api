@@ -26,7 +26,7 @@ auth = {
 
 # DNS configuration
 dns = "example.com" 
-dns_fullname = "subdomain.example.com"  
+record_name = "subdomain"  
 
 # Modifications 
 modifs = {     
@@ -34,16 +34,16 @@ modifs = {
 }  
 
 # Update the DNS record 
-response = update_dns(auth, dns, dns_fullname, **modifs) 
+response = update_dns(auth, dns, record_name, **modifs) 
 
 print(response)`
 ```
-Replace `"your_email@example.com"` and `"your_api_key"` with your Cloudflare account email and API key, respectively. Set `dns` to your domain name and `dns_fullname` to the full name of the DNS record you want to update. Use the `modifs` dictionary to specify the modifications you want to make to the DNS record.
+Replace `"your_email@example.com"` and `"your_api_key"` with your Cloudflare account email and API key, respectively. Set `dns` to your domain name and `record_name` to the name of the DNS record you want to update. Use the `modifs` dictionary to specify the modifications you want to make to the DNS record.
 
 Functions
 ---------
 
-### update\_dns(auth, dns, dns\_fullname, \*\*modifs)
+### update\_dns(auth, dns, record_name, \*\*modifs)
 
 Updates a DNS record with the specified modifications.
 
@@ -53,7 +53,7 @@ Updates a DNS record with the specified modifications.
     *   `email`: Your Cloudflare account email.
     *   `api_key`: Your Cloudflare API key.
 *   `dns`: The domain name for which the DNS record should be updated.
-*   `dns_fullname`: The full name of the DNS record to be updated.
+*   `record_name`: The name of the DNS record to be updated.
 *   `**modifs`: A dictionary containing the key-value pairs for the modifications you want to make to the DNS record.
 
 **Returns:**
