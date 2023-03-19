@@ -1,4 +1,4 @@
-from cloudflare.endpoint.endpoint import Endpoint
+from .endpoint import Endpoint
 
 
 class Zones(Endpoint):

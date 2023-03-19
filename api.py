@@ -1,6 +1,6 @@
-from cloudflare.cloudflare import Cloudflare
-from cloudflare.endpoint.dns import Dns
-from cloudflare.endpoint.zones import Zones
+from .cloudflare.cloudflare import Cloudflare
+from .cloudflare.endpoint.dns import Dns
+from .cloudflare.endpoint.zones import Zones
 
 
 def update_dns(auth, dns, name, **modifs):
