@@ -19,7 +19,7 @@ def update_dns(auth, dns, name, **modifs):
     dns_response = cloudflare.query(dns)
 
     for record in dns_response["result"]:
-        if dns_name in record["name"]:
+        if dns_name == record["name"]:
             update_record = record
 
             for key, value in modifs.items():
