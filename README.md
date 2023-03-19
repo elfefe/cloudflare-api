@@ -8,7 +8,7 @@ Installation
 
 To use this library, add it as a submodule:
 
-    git submodule add src/cloudflare-api https://github.com/elfefe/cloudflare-api
+    git submodule add src/cloudflare/api https://github.com/elfefe/cloudflare-api
 
 Usage
 -----
