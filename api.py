@@ -33,7 +33,7 @@ def update_dns(auth, dns, name, **modifs):
                 ttl=update_record["ttl"],
                 proxied=update_record["proxied"],
                 comment=update_record["comment"],
-                tag=update_record["tag"]
+                tags=update_record["tags"]
             )
             break
 
