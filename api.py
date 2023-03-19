@@ -1,11 +1,11 @@
-import os
-
 from cloudflare.cloudflare import Cloudflare
 from cloudflare.endpoint.dns import Dns
 from cloudflare.endpoint.zones import Zones
 
 
-def update_dns(auth, dns,  dns_fullname, **modifs):
+def update_dns(auth, dns, name, **modifs):
+    dns_name = f"{name}.{dns}" if name else dns
+
     cloudflare = Cloudflare().authenticate(auth)
 
     zone = Zones(name=dns)
@@ -19,7 +19,7 @@ def update_dns(auth, dns,  dns_fullname, **modifs):
     dns_response = cloudflare.query(dns)
 
     for record in dns_response["result"]:
-        if dns_fullname in record["name"]:
+        if dns_name in record["name"]:
             update_record = record
 
             for key, value in modifs.items():
@@ -36,4 +36,4 @@ def update_dns(auth, dns,  dns_fullname, **modifs):
     if dns.update is not None:
         return cloudflare.update(dns)
     else:
-        raise Exception(f"DNS record {dns_fullname} not found")
+        raise Exception(f"DNS record {name} not found")
