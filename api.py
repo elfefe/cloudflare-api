@@ -30,6 +30,10 @@ def update_dns(auth, dns, name, **modifs):
                 content=update_record["content"],
                 name=update_record["name"],
                 record_type=update_record["type"],
+                ttl=update_record["ttl"],
+                proxied=update_record["proxied"],
+                comment=update_record["comment"],
+                tag=update_record["tag"]
             )
             break
 
